@@ -1,0 +1,83 @@
+<!DOCTYPE html><html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Despertar</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: radial-gradient(ellipse at center, #0a0a0a 0%, #000000 100%);
+      color: #00ffee;
+      font-family: 'Courier New', Courier, monospace;
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    #console {
+      width: 90%;
+      max-width: 600px;
+      height: 300px;
+      background: rgba(0, 0, 0, 0.8);
+      border: 2px solid #00ffee;
+      padding: 20px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      box-shadow: 0 0 20px #00ffee;
+    }
+    #heart {
+      font-size: 3rem;
+      margin-top: 20px;
+      animation: pulse 1.5s infinite;
+      color: #ff69b4;
+      text-shadow: 0 0 10px #ff69b4;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+  </style>
+</head>
+<body>
+  <div id="console"></div>
+  <div id="heart">❤️ ALY, MI MONARCA</div>  <audio id="bg-music" autoplay loop>
+    <source src="die-with-a-smile.mp3" type="audio/mpeg">
+    Tu navegador no soporta el audio.
+  </audio>  <script>
+    const consoleBox = document.getElementById('console');
+    const lines = [
+      '[Sistema] Iniciando despertar del Monarca Carlos...',
+      '[Sistema] Vinculo de sombra detectado...',
+      '[Sistema] Objetivo: Aly 💖',
+      '[Sistema] Transfiriendo poder emocional...',
+      '[Sistema] "Te quiero más allá de todas las mazmorras"',
+      '[Sistema] Habilidad desbloqueada: Amor eterno 🖤',
+      '[Sistema] Aly ha sido reconocida como Monarca del corazón 💜',
+      '[Sistema] Carlos, tu sombra más leal, siempre contigo. – Igris'
+    ];
+
+    let i = 0;
+    function printNextLine() {
+      if (i < lines.length) {
+        const p = document.createElement('p');
+        p.textContent = lines[i];
+        consoleBox.appendChild(p);
+        consoleBox.scrollTop = consoleBox.scrollHeight;
+        i++;
+        setTimeout(printNextLine, 1800);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const audio = document.getElementById('bg-music');
+      audio.volume = 0.6;
+      printNextLine();
+    });
+  </script></body>
+  </html>
